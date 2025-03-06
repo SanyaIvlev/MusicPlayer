@@ -13,6 +13,14 @@ public class AudioPlayer : MonoBehaviour
         
         _currentClipIndex = 0;
     }
+
+    private void Update()
+    {
+        if (_audioSource.time >= _clips[_currentClipIndex].length)
+        {
+            PlayNext();
+        }
+    }
     
     public void PlayNext()
     {
