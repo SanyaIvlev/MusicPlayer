@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MusicSwitcher : MonoBehaviour
+public class  MusicSwitcher : MonoBehaviour
 {
     [SerializeField] private AudioPlayer _audioPlayer;
 

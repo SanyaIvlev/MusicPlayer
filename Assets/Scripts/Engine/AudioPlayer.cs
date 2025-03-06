@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
@@ -7,12 +8,20 @@ public class AudioPlayer : MonoBehaviour
     private AudioSource _audioSource;
     private int _currentClipIndex;
 
+    private Action _onSoundChanged;
+
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
         
         _currentClipIndex = 0;
     }
+    
+    public void AddSoundChangeCallBack(Action callback)
+        => _onSoundChanged += callback;
+    
+    public void RemoveSoundChangeCallBack(Action callback)
+        => _onSoundChanged -= callback;
 
     private void Update()
     {
@@ -51,5 +60,7 @@ public class AudioPlayer : MonoBehaviour
     {
         _audioSource.clip = _clips[_currentClipIndex];
         _audioSource.Play();
+        
+        _onSoundChanged?.Invoke();
     }
 }
