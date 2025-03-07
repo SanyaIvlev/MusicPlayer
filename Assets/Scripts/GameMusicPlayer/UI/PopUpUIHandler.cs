@@ -3,21 +3,21 @@ using UnityEngine.Serialization;
 
 public class PopUpUIHandler : MonoBehaviour
 {
-    [SerializeField] private AudioPlayer _audioPlayer;
+    [FormerlySerializedAs("_audioPlayer")] [SerializeField] private MusicSwitcher _musicSwitcher;
     [SerializeField] private string _openTrigger;
 
     private Animator _animator;
     
     private bool _isOnScreen;
     
-    private void Start()
+    private void Awake()
         => _animator = GetComponent<Animator>();
 
     private void OnEnable()
-        => _audioPlayer.AddSoundChangeCallBack(PlayOpenAnimation);
+        => _musicSwitcher.AddSoundChangeCallBack(PlayOpenAnimation);
 
     private void OnDisable()
-        => _audioPlayer.RemoveSoundChangeCallBack(PlayOpenAnimation);
+        => _musicSwitcher.RemoveSoundChangeCallBack(PlayOpenAnimation);
 
     private void PlayOpenAnimation()
     {
