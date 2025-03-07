@@ -63,4 +63,12 @@ public class  MusicSwitcher : MonoBehaviour
         
         _onSoundChanged?.Invoke(_clipsData[_currentClipIndex]);
     }
+
+    public void SwitchPause()
+    {
+        if (_audioPlayer.IsPlaying)
+            _audioPlayer.Pause();
+        else
+            _audioPlayer.Continue();
+    }
 }

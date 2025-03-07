@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
         
         _binds.Player.Next.performed += context => _musicSwitcher.PlayNext();
         _binds.Player.Previous.performed += context => _musicSwitcher.PlayPrevious();
+        
+        _binds.Player.SwitchPause.performed += context => _musicSwitcher.SwitchPause();
     }
 
     private void OnDisable()
@@ -25,5 +27,7 @@ public class Game : MonoBehaviour
         
         _binds.Player.Next.performed -= _ => _musicSwitcher.PlayNext();
         _binds.Player.Previous.performed -= _ => _musicSwitcher.PlayPrevious();
+        
+        _binds.Player.SwitchPause.performed += _ => _musicSwitcher.SwitchPause();
     }
 }

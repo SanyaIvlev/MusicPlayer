@@ -1,14 +1,21 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class PopUpUIHandler : MonoBehaviour
 {
-    [FormerlySerializedAs("_audioPlayer")] [SerializeField] private MusicSwitcher _musicSwitcher;
+    [SerializeField] private MusicSwitcher _musicSwitcher;
     [SerializeField] private string _openTrigger;
+    [SerializeField] private string _closeTrigger;
     
     [SerializeField] private TMP_Text _songField;
     [SerializeField] private TMP_Text _authorField;
+
+    private float _closeDelay = 3;
+    private float _timeWentToClose;
+
+    private bool _isHovered;
 
     private Animator _animator;
     
@@ -22,6 +29,27 @@ public class PopUpUIHandler : MonoBehaviour
 
     private void OnDisable()
         => _musicSwitcher.RemoveSoundChangeCallBack(UpdatePopUp);
+
+    public void MouseEntered()
+        => _isHovered = true;
+
+    public void MouseExited()
+        => _isHovered = false;
+
+
+    private void Update()
+    {
+        if (_isOnScreen)
+        {
+            _timeWentToClose += Time.deltaTime;
+            
+            if (_timeWentToClose >= _closeDelay && !_isHovered)
+            {
+                _timeWentToClose = 0;
+                Close();
+            }
+        }
+    }
 
     private void UpdatePopUp(MusicClipData data)
     {
@@ -37,12 +65,16 @@ public class PopUpUIHandler : MonoBehaviour
             return;
         
         _isOnScreen = true;
+        
+        _animator.ResetTrigger(_closeTrigger);
         _animator.SetTrigger(_openTrigger);
     }
     
-    private void OnClose()
+    private void Close()
     {
         _isOnScreen = false;
+        
         _animator.ResetTrigger(_openTrigger);
+        _animator.SetTrigger(_closeTrigger);
     }
 }
