@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -5,6 +6,9 @@ public class PopUpUIHandler : MonoBehaviour
 {
     [FormerlySerializedAs("_audioPlayer")] [SerializeField] private MusicSwitcher _musicSwitcher;
     [SerializeField] private string _openTrigger;
+    
+    [SerializeField] private TMP_Text _songField;
+    [SerializeField] private TMP_Text _authorField;
 
     private Animator _animator;
     
@@ -14,11 +18,19 @@ public class PopUpUIHandler : MonoBehaviour
         => _animator = GetComponent<Animator>();
 
     private void OnEnable()
-        => _musicSwitcher.AddSoundChangeCallBack(PlayOpenAnimation);
+        => _musicSwitcher.AddSoundChangeCallBack(UpdatePopUp);
 
     private void OnDisable()
-        => _musicSwitcher.RemoveSoundChangeCallBack(PlayOpenAnimation);
+        => _musicSwitcher.RemoveSoundChangeCallBack(UpdatePopUp);
 
+    private void UpdatePopUp(MusicClipData data)
+    {
+        _songField.text = data.Name;
+        _authorField.text = data.Author;
+        
+        PlayOpenAnimation();
+    }
+    
     private void PlayOpenAnimation()
     {
         if (_isOnScreen)

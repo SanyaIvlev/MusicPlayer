@@ -7,7 +7,7 @@ public class  MusicSwitcher : MonoBehaviour
     [SerializeField] private AudioPlayer _audioPlayer;
     [SerializeField] private MusicClipData[] _clipsData;
     
-    private Action _onSoundChanged;
+    private Action<MusicClipData> _onSoundChanged;
     
     private AudioClip _currentClip;
     private int _currentClipIndex;
@@ -18,10 +18,10 @@ public class  MusicSwitcher : MonoBehaviour
         _currentClip = _clipsData[_currentClipIndex].audioClip;
     }
     
-    public void AddSoundChangeCallBack(Action callback)
+    public void AddSoundChangeCallBack(Action<MusicClipData> callback)
         => _onSoundChanged += callback;
     
-    public void RemoveSoundChangeCallBack(Action callback)
+    public void RemoveSoundChangeCallBack(Action<MusicClipData> callback)
         => _onSoundChanged -= callback;
     
     private void Update()
@@ -61,6 +61,6 @@ public class  MusicSwitcher : MonoBehaviour
         _currentClip = _clipsData[_currentClipIndex].audioClip;
         _audioPlayer.PlayOnce(_currentClip);
         
-        _onSoundChanged?.Invoke();
+        _onSoundChanged?.Invoke(_clipsData[_currentClipIndex]);
     }
 }
