@@ -15,3 +15,4 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 100775b720cd65749abc2bf96576d661, type: 3}
   Name: Mafia 2 - Main Theme
   Author: Karim El-Husseiny
+  Icon: {fileID: 2800000, guid: 5bdb79e9410ec094997ef24723a7345c, type: 3}

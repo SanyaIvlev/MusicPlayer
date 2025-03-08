@@ -15,3 +15,4 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: a6cc89837b23f5f42a7e88f72e300cf3, type: 3}
   Name: Nine Thou
   Author: Styles of Beyond
+  Icon: {fileID: 2800000, guid: 594d2061cff59554c8b1987ced990af3, type: 3}
