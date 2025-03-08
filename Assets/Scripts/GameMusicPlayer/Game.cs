@@ -3,6 +3,7 @@
 public class Game : MonoBehaviour
 {
     [SerializeField] private MusicSwitcher _musicSwitcher;
+    [SerializeField] private PopUpUIHandler _popUpUIHandler;
     
     private InputBinds _binds;
     
@@ -14,20 +15,28 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _binds.Enable();
+
+        var playerActions = _binds.Player;
         
-        _binds.Player.Next.performed += context => _musicSwitcher.PlayNext();
-        _binds.Player.Previous.performed += context => _musicSwitcher.PlayPrevious();
+        playerActions.Next.performed += context => _musicSwitcher.PlayNext();
+        playerActions.Previous.performed += context => _musicSwitcher.PlayPrevious();
         
-        _binds.Player.SwitchPause.performed += context => _musicSwitcher.SwitchPause();
+        playerActions.SwitchPause.performed += context => _musicSwitcher.SwitchPause();
+
+        playerActions.OpenPopUp.performed += context => _popUpUIHandler.PlayOpenAnimation();
     }
 
     private void OnDisable()
     {
         _binds.Disable();
         
-        _binds.Player.Next.performed -= _ => _musicSwitcher.PlayNext();
-        _binds.Player.Previous.performed -= _ => _musicSwitcher.PlayPrevious();
+        var playerActions = _binds.Player;
         
-        _binds.Player.SwitchPause.performed += _ => _musicSwitcher.SwitchPause();
+        playerActions.Next.performed -= _ => _musicSwitcher.PlayNext();
+        playerActions.Previous.performed -= _ => _musicSwitcher.PlayPrevious();
+        
+        playerActions.SwitchPause.performed += _ => _musicSwitcher.SwitchPause();
+        
+        playerActions.OpenPopUp.performed -= _ => _musicSwitcher.SwitchPause();
     }
 }

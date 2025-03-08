@@ -59,7 +59,7 @@ public class PopUpUIHandler : MonoBehaviour
         PlayOpenAnimation();
     }
     
-    private void PlayOpenAnimation()
+    public void PlayOpenAnimation()
     {
         if (_isOnScreen)
             return;

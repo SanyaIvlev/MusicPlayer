@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPopUp",
+                    "type": "Button",
+                    "id": "34609ef5-8b64-4b44-b0cf-f20de26eae75",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -75,6 +84,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "SwitchPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c4ec03b-11ac-4dfd-8dc9-5aa1e73ddc16",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPopUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe1c745d-99df-466f-a239-989212a58228",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPopUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
