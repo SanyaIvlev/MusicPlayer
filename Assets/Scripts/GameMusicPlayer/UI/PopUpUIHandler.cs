@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PopUpUIHandler : MonoBehaviour
 {
@@ -11,6 +11,8 @@ public class PopUpUIHandler : MonoBehaviour
     
     [SerializeField] private TMP_Text _songField;
     [SerializeField] private TMP_Text _authorField;
+    [SerializeField] private RawImage _soundIcon;
+    [SerializeField] private RawImage _soundIconBackground;
 
     private float _closeDelay = 3;
     private float _timeWentToClose;
@@ -55,6 +57,7 @@ public class PopUpUIHandler : MonoBehaviour
     {
         _songField.text = data.Name;
         _authorField.text = data.Author;
+        _soundIconBackground.texture = _soundIcon.texture = data.Icon;
         
         PlayOpenAnimation();
     }
