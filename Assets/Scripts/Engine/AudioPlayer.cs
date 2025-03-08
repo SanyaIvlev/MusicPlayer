@@ -27,4 +27,9 @@ public class AudioPlayer : MonoBehaviour
     {
         _audioSource.UnPause();
     }
+
+    public void SetVolume(float volume)
+    {
+        _audioSource.volume = volume;
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpecialUILogic : MonoBehaviour
+public class PauseUILogic : MonoBehaviour
 {
     public void OnSwitchedPause(GameObject objectToSwitch)
     {
