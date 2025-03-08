@@ -1132,6 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _musicSwitcher: {fileID: 2126026399}
+  _popUpUIHandler: {fileID: 559353801}
 --- !u!4 &880891894
 Transform:
   m_ObjectHideFlags: 0
@@ -2191,8 +2192,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioPlayer: {fileID: 2126026403}
   _clipsData:
+  - {fileID: 11400000, guid: 57e64c8c734b1c74a9356055e64f2120, type: 2}
   - {fileID: 11400000, guid: 3cafdef9ea5e1cc46a28ff70eb3a0ebc, type: 2}
   - {fileID: 11400000, guid: f0f1cea8912ff7847ae89c04f98971ff, type: 2}
+  - {fileID: 11400000, guid: a0e0592a4f595e545977ea1478081a60, type: 2}
+  - {fileID: 11400000, guid: 3af81c0d203c25545861c204e40678a6, type: 2}
 --- !u!82 &2126026401
 AudioSource:
   m_ObjectHideFlags: 0
