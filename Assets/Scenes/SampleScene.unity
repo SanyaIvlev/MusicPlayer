@@ -960,6 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de5c1cb3bc8add4ab8cf5a95eac16a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musicSwitcher: {fileID: 2126026399}
+  objectToSwitch: {fileID: 1218533430}
 --- !u!114 &596600790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,18 +1040,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 596600789}
-        m_TargetAssemblyTypeName: SpecialUILogic, Assembly-CSharp
-        m_MethodName: OnSwitchedPause
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1218533430}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1433,6 +1423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de5c1cb3bc8add4ab8cf5a95eac16a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musicSwitcher: {fileID: 2126026399}
+  objectToSwitch: {fileID: 596600787}
 --- !u!114 &1218533432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,18 +1503,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1218533431}
-        m_TargetAssemblyTypeName: SpecialUILogic, Assembly-CSharp
-        m_MethodName: OnSwitchedPause
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 596600787}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

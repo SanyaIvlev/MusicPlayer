@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 
 public class  MusicSwitcher : MonoBehaviour
 {
@@ -8,14 +9,15 @@ public class  MusicSwitcher : MonoBehaviour
     [SerializeField] private MusicClipData[] _clipsData;
     
     private Action<MusicClipData> _onSoundChanged;
+    private Action _onPauseSwitched;
     
     private AudioClip _currentClip;
     private int _currentClipIndex;
 
-    private void Awake()
+    private void Start()
     {
         _currentClipIndex = 0;
-        _currentClip = _clipsData[_currentClipIndex].audioClip;
+        PlayCurrentClip();
     }
     
     public void AddSoundChangeCallBack(Action<MusicClipData> callback)
@@ -23,6 +25,12 @@ public class  MusicSwitcher : MonoBehaviour
     
     public void RemoveSoundChangeCallBack(Action<MusicClipData> callback)
         => _onSoundChanged -= callback;
+    
+    public void AddPauseSwitchCallBack(Action callback) 
+        => _onPauseSwitched += callback;
+    
+    public void RemovePauseSwitchCallBack(Action callback) 
+        => _onPauseSwitched -= callback;
     
     private void Update()
     {
@@ -70,5 +78,7 @@ public class  MusicSwitcher : MonoBehaviour
             _audioPlayer.Pause();
         else
             _audioPlayer.Continue();
+        
+        _onPauseSwitched?.Invoke();
     }
 }

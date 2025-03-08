@@ -14,8 +14,13 @@ public class AudioPlayer : MonoBehaviour
     
     public void PlayOnce(AudioClip clip)
     {
+        bool wasPaused = !_audioSource.isPlaying;
+        
         _audioSource.clip = clip;
         _audioSource.Play();
+
+        if (wasPaused)
+            _audioSource.Pause();
     }
     
     public void Pause()
